@@ -1,17 +1,20 @@
-/* ===== VARIABLES GLOBALES ===== */
+/* ===== PARTE 1: VARIABLES, RESET Y NAVEGACIÓN ===== */
+
+/* VARIABLES GLOBALES */
 :root {
-    --color-vino: #722f37;
-    --color-vino-oscuro: #4a1e24;
-    --color-crema: #f8f0e3;
-    --color-dorado: #c6a15b;
-    --color-gris: #333333;
-    --color-gris-claro: #666666;
-    --color-fondo: #ffffff;
-    --sombra: 0 5px 15px rgba(0,0,0,0.1);
+    --color-vino: #8B3A3A;
+    --color-vino-oscuro: #5D2E2E;
+    --color-crema: #F5E6D3;
+    --color-dorado: #D4AF37;
+    --color-marron-fondo: #3E2723;
+    --color-marron-claro: #5D4037;
+    --color-texto-claro: #EFEBE9;
+    --color-texto-oscuro: #2C3E50;
+    --sombra: 0 8px 20px rgba(0,0,0,0.3);
     --transicion: all 0.3s ease;
 }
 
-/* ===== RESET Y ESTILOS BASE ===== */
+/* RESET Y ESTILOS BASE */
 * {
     margin: 0;
     padding: 0;
@@ -25,8 +28,8 @@ html {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: var(--color-gris);
-    background-color: var(--color-fondo);
+    color: var(--color-texto-claro);
+    background-color: var(--color-marron-fondo);
 }
 
 .container {
@@ -36,14 +39,15 @@ body {
     padding: 0 20px;
 }
 
-/* ===== TÍTULOS ===== */
+/* TÍTULOS */
 .section-title {
     font-size: 2.5rem;
     text-align: center;
-    color: var(--color-vino);
+    color: var(--color-dorado);
     margin-bottom: 1rem;
     position: relative;
     padding-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .section-title::after {
@@ -55,23 +59,27 @@ body {
     width: 80px;
     height: 3px;
     background: var(--color-dorado);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
 .section-subtitle {
     text-align: center;
-    color: var(--color-gris-claro);
+    color: var(--color-crema);
     font-size: 1.2rem;
     margin-bottom: 3rem;
+    font-style: italic;
 }
 
-/* ===== HEADER Y NAVEGACIÓN ===== */
+/* HEADER Y NAVEGACIÓN */
 .header {
-    background-color: var(--color-fondo);
+    background-color: rgba(62, 39, 35, 0.95);
+    backdrop-filter: blur(5px);
     box-shadow: var(--sombra);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    border-bottom: 2px solid var(--color-dorado);
 }
 
 .navbar {
@@ -89,11 +97,12 @@ body {
     gap: 10px;
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--color-vino);
+    color: var(--color-dorado);
 }
 
 .logo i {
     font-size: 2rem;
+    color: var(--color-dorado);
 }
 
 .nav-menu {
@@ -104,13 +113,16 @@ body {
 
 .nav-menu a {
     text-decoration: none;
-    color: var(--color-gris);
+    color: var(--color-crema);
     font-weight: 500;
     transition: var(--transicion);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
 }
 
 .nav-menu a:hover {
-    color: var(--color-vino);
+    color: var(--color-dorado);
+    background-color: rgba(212, 175, 55, 0.1);
 }
 
 .hamburger {
@@ -123,14 +135,15 @@ body {
     width: 25px;
     height: 3px;
     margin: 5px auto;
-    background-color: var(--color-gris);
+    background-color: var(--color-crema);
     transition: var(--transicion);
 }
+/* ===== PARTE 2: HERO, TIPOS DE VINO Y TOP VINOS ===== */
 
-/* ===== HERO SECTION ===== */
+/* HERO SECTION */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(62, 39, 35, 0.8)), 
                 url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
     background-size: cover;
     background-position: center;
@@ -138,7 +151,7 @@ body {
     display: flex;
     align-items: center;
     text-align: center;
-    color: white;
+    color: var(--color-texto-claro);
     margin-top: 0;
     padding: 0 1rem;
 }
@@ -152,6 +165,7 @@ body {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     animation: fadeInUp 1s ease;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .highlight {
@@ -167,25 +181,39 @@ body {
 .btn {
     display: inline-block;
     padding: 1rem 2rem;
-    background-color: var(--color-vino);
-    color: white;
+    background-color: var(--color-dorado);
+    color: var(--color-marron-fondo);
     text-decoration: none;
     border-radius: 5px;
     transition: var(--transicion);
     border: 2px solid transparent;
     animation: fadeInUp 1s ease 0.4s both;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn:hover {
     background-color: transparent;
-    border-color: var(--color-vino);
-    color: white;
+    border-color: var(--color-dorado);
+    color: var(--color-dorado);
 }
 
-/* ===== SECCIÓN TIPOS DE VINO ===== */
+/* SECCIÓN TIPOS DE VINO */
 .tipos {
     padding: 5rem 0;
-    background-color: var(--color-crema);
+    background-color: var(--color-marron-claro);
+    position: relative;
+}
+
+.tipos::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--color-dorado), transparent);
 }
 
 .tipos-grid {
@@ -196,40 +224,44 @@ body {
 }
 
 .tipo-card {
-    background: white;
+    background: rgba(62, 39, 35, 0.8);
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: var(--sombra);
     transition: var(--transicion);
     text-align: center;
+    border: 1px solid var(--color-dorado);
+    backdrop-filter: blur(5px);
 }
 
 .tipo-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(114, 47, 55, 0.2);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    border-color: var(--color-crema);
 }
 
 .tipo-icon {
     width: 80px;
     height: 80px;
-    background: var(--color-vino);
-    color: white;
+    background: var(--color-dorado);
+    color: var(--color-marron-fondo);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
     font-size: 2rem;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
 .tipo-card h3 {
-    color: var(--color-vino);
+    color: var(--color-dorado);
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
 
 .tipo-card p {
-    color: var(--color-gris-claro);
+    color: var(--color-crema);
     margin-bottom: 1rem;
 }
 
@@ -237,30 +269,36 @@ body {
     list-style: none;
     text-align: left;
     padding: 1rem;
-    background: var(--color-crema);
-    border-radius: 5px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
     font-size: 0.9rem;
+    border: 1px solid var(--color-dorado);
 }
 
 .variedades li {
     margin-bottom: 0.5rem;
-    color: var(--color-gris);
+    color: var(--color-crema);
 }
 
-/* ===== SECCIÓN TOP VINOS ===== */
+.variedades strong {
+    color: var(--color-dorado);
+}
+
+/* SECCIÓN TOP VINOS */
 .top-vinos {
     padding: 5rem 0;
-    background: linear-gradient(135deg, var(--color-vino) 0%, var(--color-vino-oscuro) 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--color-marron-fondo) 0%, var(--color-vino-oscuro) 100%);
+    color: var(--color-texto-claro);
+    position: relative;
 }
 
 .top-vinos .section-title,
 .top-vinos .section-subtitle {
-    color: white;
+    color: var(--color-crema);
 }
 
 .top-vinos .section-title::after {
-    background: white;
+    background: var(--color-crema);
 }
 
 .top-grid {
@@ -271,70 +309,104 @@ body {
 }
 
 .vino-card {
-    background: white;
-    border-radius: 10px;
+    background: rgba(62, 39, 35, 0.9);
+    border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--sombra);
     transition: var(--transicion);
-    color: var(--color-gris);
+    color: var(--color-crema);
+    border: 1px solid var(--color-dorado);
+    position: relative;
 }
 
 .vino-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border-color: var(--color-crema);
+}
+
+.vino-imagen {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-bottom: 3px solid var(--color-dorado);
+}
+
+.vino-imagen::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(transparent, rgba(62, 39, 35, 0.9));
 }
 
 .vino-info {
     padding: 1.5rem;
+    position: relative;
+    z-index: 2;
 }
 
 .vino-info h3 {
-    color: var(--color-vino);
+    color: var(--color-dorado);
     margin-bottom: 0.5rem;
     font-size: 1.3rem;
 }
 
 .vino-bodega {
-    color: var(--color-dorado);
+    color: var(--color-crema);
     font-weight: 600;
     margin-bottom: 0.5rem;
+    font-style: italic;
 }
 
 .vino-tipo {
     display: inline-block;
-    background: var(--color-crema);
+    background: var(--color-dorado);
+    color: var(--color-marron-fondo);
     padding: 0.3rem 1rem;
     border-radius: 20px;
     font-size: 0.8rem;
     margin: 0.5rem 0;
+    font-weight: bold;
 }
 
 .vino-rating {
     color: #ffc107;
     margin: 0.5rem 0;
+    text-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
 .vino-rating span {
-    color: var(--color-gris-claro);
+    color: var(--color-crema);
     margin-left: 0.5rem;
 }
 
 .vino-descripcion {
-    color: var(--color-gris-claro);
+    color: var(--color-crema);
     font-size: 0.9rem;
     margin: 0.5rem 0;
+    line-height: 1.4;
 }
 
 .vino-precio {
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--color-vino);
+    color: var(--color-dorado);
     margin-top: 1rem;
+    border-top: 1px solid var(--color-dorado);
+    padding-top: 1rem;
 }
+/* ===== PARTE 3: MARIDAJE, NEWSLETTER, FOOTER Y RESPONSIVE ===== */
 
-/* ===== SECCIÓN MARIDAJE ===== */
+/* SECCIÓN MARIDAJE */
 .maridaje {
     padding: 5rem 0;
-    background: white;
+    background-color: var(--color-marron-claro);
+    position: relative;
 }
 
 .maridaje-grid {
@@ -347,58 +419,65 @@ body {
 .maridaje-item {
     text-align: center;
     padding: 2rem;
-    background: var(--color-crema);
-    border-radius: 10px;
+    background: rgba(62, 39, 35, 0.8);
+    border-radius: 15px;
     transition: var(--transicion);
+    border: 1px solid var(--color-dorado);
+    backdrop-filter: blur(5px);
 }
 
 .maridaje-item:hover {
     transform: translateY(-5px);
     box-shadow: var(--sombra);
+    border-color: var(--color-crema);
 }
 
 .maridaje-img {
     width: 80px;
     height: 80px;
-    background: var(--color-vino);
-    color: white;
+    background: var(--color-dorado);
+    color: var(--color-marron-fondo);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
     font-size: 2rem;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
 .maridaje-item h3 {
-    color: var(--color-vino);
+    color: var(--color-dorado);
     margin-bottom: 1rem;
 }
 
 .maridaje-item p {
-    color: var(--color-gris-claro);
+    color: var(--color-crema);
     margin-bottom: 0.5rem;
 }
 
 .maridaje-item p:first-of-type {
     font-weight: bold;
-    color: var(--color-dorado);
+    color: var(--color-crema);
 }
 
-/* ===== SECCIÓN NEWSLETTER ===== */
+/* SECCIÓN NEWSLETTER */
 .newsletter {
     padding: 5rem 0;
-    background: linear-gradient(rgba(114, 47, 55, 0.9), rgba(74, 30, 36, 0.9)), 
+    background: linear-gradient(rgba(62, 39, 35, 0.95), rgba(93, 46, 46, 0.95)), 
                 url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
     background-size: cover;
     background-position: center;
-    color: white;
+    color: var(--color-crema);
     text-align: center;
+    border-top: 3px solid var(--color-dorado);
+    border-bottom: 3px solid var(--color-dorado);
 }
 
 .newsletter h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: var(--color-dorado);
 }
 
 .newsletter p {
@@ -423,25 +502,29 @@ body {
     border-radius: 5px;
     font-size: 1rem;
     transition: var(--transicion);
+    background: rgba(255,255,255,0.9);
 }
 
 .form-group input:focus {
     outline: 2px solid var(--color-dorado);
+    background: white;
 }
 
 .btn-submit {
     width: 100%;
     background-color: var(--color-dorado);
-    color: var(--color-gris);
+    color: var(--color-marron-fondo);
     font-weight: bold;
     font-size: 1.1rem;
     cursor: pointer;
     border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn-submit:hover {
     background-color: transparent;
-    color: white;
+    color: var(--color-dorado);
     border: 2px solid var(--color-dorado);
 }
 
@@ -454,21 +537,24 @@ body {
 
 .form-mensaje.success {
     display: block;
-    background: rgba(255,255,255,0.2);
-    color: white;
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--color-dorado);
+    border: 1px solid var(--color-dorado);
 }
 
 .form-mensaje.error {
     display: block;
     background: rgba(220, 53, 69, 0.2);
     color: #ff6b6b;
+    border: 1px solid #ff6b6b;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 .footer {
-    background-color: #1a1a1a;
-    color: white;
+    background-color: #2C3E50;
+    color: var(--color-crema);
     padding: 3rem 0 1rem;
+    border-top: 3px solid var(--color-dorado);
 }
 
 .footer-content {
@@ -484,7 +570,7 @@ body {
 }
 
 .footer-info p {
-    color: #999;
+    color: var(--color-crema);
     line-height: 1.6;
 }
 
@@ -503,7 +589,7 @@ body {
 }
 
 .footer-links a {
-    color: #999;
+    color: var(--color-crema);
     text-decoration: none;
     transition: var(--transicion);
 }
@@ -524,22 +610,24 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: #333;
-    color: white;
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--color-dorado);
     border-radius: 50%;
     transition: var(--transicion);
+    border: 1px solid var(--color-dorado);
 }
 
 .social-icons a:hover {
     background: var(--color-dorado);
+    color: var(--color-marron-fondo);
     transform: translateY(-3px);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid #333;
-    color: #999;
+    border-top: 1px solid var(--color-dorado);
+    color: var(--color-crema);
 }
 
 .footer-bottom p:last-child {
@@ -547,7 +635,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* ===== ANIMACIONES ===== */
+/* ANIMACIONES */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -559,7 +647,7 @@ body {
     }
 }
 
-/* ===== MEDIA QUERIES (RESPONSIVE) ===== */
+/* MEDIA QUERIES (RESPONSIVE) */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
@@ -583,12 +671,13 @@ body {
         top: 70px;
         gap: 0;
         flex-direction: column;
-        background-color: white;
+        background-color: var(--color-marron-fondo);
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        box-shadow: var(--sombra);
         padding: 2rem 0;
+        border-bottom: 2px solid var(--color-dorado);
     }
 
     .nav-menu.active {
@@ -597,6 +686,10 @@ body {
 
     .nav-menu li {
         margin: 1rem 0;
+    }
+
+    .nav-menu a {
+        color: var(--color-crema);
     }
 
     .hero h1 {
