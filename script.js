@@ -2,16 +2,20 @@
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
-hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
-});
+if (hamburger) {
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    });
+}
 
 // Cerrar menú al hacer clic en un enlace
 document.querySelectorAll(".nav-menu a").forEach(link => {
     link.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
+        if (hamburger) {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }
     });
 });
 
@@ -78,7 +82,10 @@ const vinosData = [
 function cargarVinos() {
     const container = document.getElementById('top-vinos-container');
     
-    if (!container) return;
+    if (!container) {
+        console.log("Contenedor de vinos no encontrado");
+        return;
+    }
     
     let html = '';
     
@@ -112,59 +119,88 @@ function cargarVinos() {
     });
     
     container.innerHTML = html;
+    console.log("Vinos cargados correctamente");
 }
 
 // ===== FORMULARIO DE NEWSLETTER =====
-document.addEventListener('DOMContentLoaded', function() {
-    // Cargar vinos
-    cargarVinos();
-    
-    // Configurar formulario
+function inicializarFormulario() {
     const form = document.getElementById('newsletter-form');
     const mensajeDiv = document.getElementById('form-mensaje');
     
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nombre = document.getElementById('nombre').value.trim();
-            const email = document.getElementById('email').value.trim();
-            
-            // Validación básica
-            if (nombre === '' || email === '') {
-                mostrarMensaje('Por favor, completa todos los campos', 'error');
-                return;
-            }
-            
-            if (!validarEmail(email)) {
-                mostrarMensaje('Por favor, ingresa un email válido', 'error');
-                return;
-            }
-            
-            // Simular envío exitoso
-            mostrarMensaje(`¡Gracias ${nombre}! Te has suscrito correctamente a nuestra newsletter.`, 'success');
-            form.reset();
-        });
+    if (!form) {
+        console.log("Formulario no encontrado");
+        return;
     }
     
-    function mostrarMensaje(texto, tipo) {
-        if (!mensajeDiv) return;
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        mensajeDiv.textContent = texto;
-        mensajeDiv.className = 'form-mensaje ' + tipo;
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
         
-        // Ocultar después de 5 segundos
-        setTimeout(() => {
-            mensajeDiv.textContent = '';
-            mensajeDiv.className = 'form-mensaje';
-        }, 5000);
-    }
-    
-    function validarEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-});
+        // Validación básica
+        if (nombre === '' || email === '') {
+            mostrarMensaje('Por favor, completa todos los campos', 'error', mensajeDiv);
+            return;
+        }
+        
+        if (!validarEmail(email)) {
+            mostrarMensaje('Por favor, ingresa un email válido', 'error', mensajeDiv);
+            return;
+        }
+        
+        // Simular envío exitoso
+        mostrarMensaje(`¡Gracias ${nombre}! Te has suscrito correctamente a nuestra newsletter.`, 'success', mensajeDiv);
+        form.reset();
+    });
+}
 
-// ===== EFECTO DE SCROLL SUAVE PARA ENLACES INTERNOS =====
-document.querySelectorAll
+function mostrarMensaje(texto, tipo, mensajeDiv) {
+    if (!mensajeDiv) return;
+    
+    mensajeDiv.textContent = texto;
+    mensajeDiv.className = 'form-mensaje ' + tipo;
+    
+    // Ocultar después de 5 segundos
+    setTimeout(() => {
+        mensajeDiv.textContent = '';
+        mensajeDiv.className = 'form-mensaje';
+    }, 5000);
+}
+
+function validarEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// ===== SCROLL SUAVE PARA ENLACES INTERNOS =====
+function inicializarScrollSuave() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// ===== INICIALIZAR TODO CUANDO EL DOM ESTÉ LISTO =====
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM cargado, inicializando scripts...");
+    
+    // Cargar vinos
+    cargarVinos();
+    
+    // Inicializar formulario
+    inicializarFormulario();
+    
+    // Inicializar scroll suave
+    inicializarScrollSuave();
+    
+    console.log("Todos los scripts inicializados correctamente");
+});
