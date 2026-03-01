@@ -1,6 +1,4 @@
-/* ===== PARTE 1: VARIABLES, RESET, TÍTULOS Y NAVEGACIÓN ===== */
-
-/* VARIABLES GLOBALES */
+/* ===== VARIABLES GLOBALES ===== */
 :root {
     --color-vino: #722f37;
     --color-vino-oscuro: #4a1e24;
@@ -13,7 +11,7 @@
     --transicion: all 0.3s ease;
 }
 
-/* RESET Y ESTILOS BASE */
+/* ===== RESET Y ESTILOS BASE ===== */
 * {
     margin: 0;
     padding: 0;
@@ -38,7 +36,7 @@ body {
     padding: 0 20px;
 }
 
-/* TÍTULOS */
+/* ===== TÍTULOS ===== */
 .section-title {
     font-size: 2.5rem;
     text-align: center;
@@ -66,7 +64,7 @@ body {
     margin-bottom: 3rem;
 }
 
-/* HEADER Y NAVEGACIÓN */
+/* ===== HEADER Y NAVEGACIÓN ===== */
 .header {
     background-color: var(--color-fondo);
     box-shadow: var(--sombra);
@@ -128,9 +126,8 @@ body {
     background-color: var(--color-gris);
     transition: var(--transicion);
 }
-/* ===== PARTE 2: HERO, TIPOS DE VINO Y TOP VINOS ===== */
 
-/* HERO SECTION */
+/* ===== HERO SECTION ===== */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
@@ -185,7 +182,7 @@ body {
     color: white;
 }
 
-/* SECCIÓN TIPOS DE VINO */
+/* ===== SECCIÓN TIPOS DE VINO ===== */
 .tipos {
     padding: 5rem 0;
     background-color: var(--color-crema);
@@ -250,7 +247,7 @@ body {
     color: var(--color-gris);
 }
 
-/* SECCIÓN TOP VINOS */
+/* ===== SECCIÓN TOP VINOS ===== */
 .top-vinos {
     padding: 5rem 0;
     background: linear-gradient(135deg, var(--color-vino) 0%, var(--color-vino-oscuro) 100%);
@@ -333,9 +330,8 @@ body {
     color: var(--color-vino);
     margin-top: 1rem;
 }
-/* ===== PARTE 3: MARIDAJE, NEWSLETTER, FOOTER, ANIMACIONES Y RESPONSIVE ===== */
 
-/* SECCIÓN MARIDAJE */
+/* ===== SECCIÓN MARIDAJE ===== */
 .maridaje {
     padding: 5rem 0;
     background: white;
@@ -389,7 +385,7 @@ body {
     color: var(--color-dorado);
 }
 
-/* SECCIÓN NEWSLETTER */
+/* ===== SECCIÓN NEWSLETTER ===== */
 .newsletter {
     padding: 5rem 0;
     background: linear-gradient(rgba(114, 47, 55, 0.9), rgba(74, 30, 36, 0.9)), 
@@ -468,7 +464,7 @@ body {
     color: #ff6b6b;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 .footer {
     background-color: #1a1a1a;
     color: white;
@@ -551,7 +547,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* ANIMACIONES */
+/* ===== ANIMACIONES ===== */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -563,7 +559,7 @@ body {
     }
 }
 
-/* MEDIA QUERIES (RESPONSIVE) */
+/* ===== MEDIA QUERIES (RESPONSIVE) ===== */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
