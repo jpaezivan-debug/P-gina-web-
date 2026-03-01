@@ -1,594 +1,221 @@
-/* ===== VARIABLES ===== */
-:root {
-    --color-vino: #8B3A3A;
-    --color-vino-oscuro: #5D2E2E;
-    --color-crema: #F5E6D3;
-    --color-dorado: #D4AF37;
-    --color-marron-fondo: #3E2723;
-    --color-marron-claro: #5D4037;
-    --color-texto-claro: #EFEBE9;
-    --sombra: 0 8px 20px rgba(0,0,0,0.3);
-    --transicion: all 0.3s ease;
-}
-
-/* ===== RESET ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    color: var(--color-texto-claro);
-    background-color: var(--color-marron-fondo);
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* ===== TÍTULOS ===== */
-h1, h2, h3, .logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    color: var(--color-dorado);
-    margin-bottom: 1rem;
-    position: relative;
-    padding-bottom: 1rem;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: var(--color-dorado);
-}
-
-.section-subtitle {
-    text-align: center;
-    color: var(--color-crema);
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-    font-style: italic;
-}
-
-/* ===== HEADER ===== */
-.header {
-    background-color: rgba(62, 39, 35, 0.95);
-    backdrop-filter: blur(5px);
-    box-shadow: var(--sombra);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 2px solid var(--color-dorado);
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.5rem;
-    color: var(--color-dorado);
-    text-decoration: none;
-}
-
-.logo i {
-    font-size: 2rem;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: var(--color-crema);
-    font-weight: 500;
-    transition: var(--transicion);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-}
-
-.nav-menu a:hover {
-    color: var(--color-dorado);
-    background-color: rgba(212, 175, 55, 0.1);
-}
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: var(--color-crema);
-    transition: var(--transicion);
-}
-
-/* ===== HERO ===== */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(62, 39, 35, 0.8)), 
-                url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: white;
-    padding: 0 1rem;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    animation: fadeInUp 1s ease;
-}
-
-.highlight {
-    color: var(--color-dorado);
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    animation: fadeInUp 1s ease 0.2s both;
-}
-
-.btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: var(--color-dorado);
-    color: var(--color-marron-fondo);
-    text-decoration: none;
-    border-radius: 5px;
-    transition: var(--transicion);
-    border: 2px solid transparent;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.btn:hover {
-    background-color: transparent;
-    border-color: var(--color-dorado);
-    color: var(--color-dorado);
-}
-
-/* ===== TIPOS DE VINO ===== */
-.tipos {
-    padding: 5rem 0;
-    background-color: var(--color-marron-claro);
-}
-
-.tipos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.tipo-card {
-    background: rgba(62, 39, 35, 0.8);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: var(--sombra);
-    transition: var(--transicion);
-    text-align: center;
-    border: 1px solid var(--color-dorado);
-}
-
-.tipo-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--color-crema);
-}
-
-.tipo-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--color-dorado);
-    color: var(--color-marron-fondo);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 2rem;
-}
-
-.tipo-card h3 {
-    color: var(--color-dorado);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.tipo-card p {
-    color: var(--color-crema);
-    margin-bottom: 1rem;
-}
-
-.variedades {
-    list-style: none;
-    text-align: left;
-    padding: 1rem;
-    background: rgba(0,0,0,0.2);
-    border-radius: 10px;
-    font-size: 0.9rem;
-    border: 1px solid var(--color-dorado);
-}
-
-.variedades li {
-    margin-bottom: 0.5rem;
-    color: var(--color-crema);
-}
-
-.variedades strong {
-    color: var(--color-dorado);
-}
-
-/* ===== TOP VINOS ===== */
-.top-vinos {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, var(--color-marron-fondo) 0%, var(--color-vino-oscuro) 100%);
-}
-
-.top-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.vino-card {
-    background: rgba(62, 39, 35, 0.9);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--sombra);
-    transition: var(--transicion);
-    color: var(--color-crema);
-    border: 1px solid var(--color-dorado);
-}
-
-.vino-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--color-crema);
-}
-
-.vino-imagen {
-    width: 100%;
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    border-bottom: 3px solid var(--color-dorado);
-}
-
-.vino-info {
-    padding: 1.5rem;
-}
-
-.vino-info h3 {
-    color: var(--color-dorado);
-    margin-bottom: 0.5rem;
-}
-
-.vino-bodega {
-    color: var(--color-crema);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    font-style: italic;
-}
-
-.vino-tipo {
-    display: inline-block;
-    background: var(--color-dorado);
-    color: var(--color-marron-fondo);
-    padding: 0.3rem 1rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin: 0.5rem 0;
-    font-weight: bold;
-}
-
-.vino-rating {
-    color: #ffc107;
-    margin: 0.5rem 0;
-}
-
-.vino-rating span {
-    color: var(--color-crema);
-    margin-left: 0.5rem;
-}
-
-.vino-precio {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--color-dorado);
-    margin-top: 1rem;
-    border-top: 1px solid var(--color-dorado);
-    padding-top: 1rem;
-}
-
-/* ===== MARIDAJE ===== */
-.maridaje {
-    padding: 5rem 0;
-    background-color: var(--color-marron-claro);
-}
-
-.maridaje-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.maridaje-item {
-    text-align: center;
-    padding: 2rem;
-    background: rgba(62, 39, 35, 0.8);
-    border-radius: 15px;
-    transition: var(--transicion);
-    border: 1px solid var(--color-dorado);
-}
-
-.maridaje-item:hover {
-    transform: translateY(-5px);
-    border-color: var(--color-crema);
-}
-
-.maridaje-img {
-    width: 80px;
-    height: 80px;
-    background: var(--color-dorado);
-    color: var(--color-marron-fondo);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 2rem;
-}
-
-/* ===== NEWSLETTER ===== */
-.newsletter {
-    padding: 5rem 0;
-    background: linear-gradient(rgba(62, 39, 35, 0.95), rgba(93, 46, 46, 0.95)), 
-                url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    border-top: 3px solid var(--color-dorado);
-    border-bottom: 3px solid var(--color-dorado);
-}
-
-.newsletter h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--color-dorado);
-}
-
-.form-newsletter {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 1rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    background: rgba(255,255,255,0.9);
-}
-
-.form-group input:focus {
-    outline: 2px solid var(--color-dorado);
-}
-
-.btn-submit {
-    width: 100%;
-    background-color: var(--color-dorado);
-    color: var(--color-marron-fondo);
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-}
-
-.form-mensaje {
-    margin-top: 1rem;
-    padding: 1rem;
-    border-radius: 5px;
-    display: none;
-}
-
-.form-mensaje.success {
-    display: block;
-    background: rgba(212, 175, 55, 0.2);
-    color: var(--color-dorado);
-    border: 1px solid var(--color-dorado);
-}
-
-.form-mensaje.error {
-    display: block;
-    background: rgba(220, 53, 69, 0.2);
-    color: #ff6b6b;
-}
-
-/* ===== FOOTER ===== */
-.footer {
-    background-color: #2C3E50;
-    color: var(--color-crema);
-    padding: 3rem 0 1rem;
-    border-top: 3px solid var(--color-dorado);
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-info h3,
-.footer-links h4,
-.footer-social h4 {
-    color: var(--color-dorado);
-    margin-bottom: 1rem;
-}
-
-.footer-links ul {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-links a {
-    color: var(--color-crema);
-    text-decoration: none;
-    transition: var(--transicion);
-}
-
-.footer-links a:hover {
-    color: var(--color-dorado);
-    padding-left: 5px;
-}
-
-.social-icons {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(212, 175, 55, 0.2);
-    color: var(--color-dorado);
-    border-radius: 50%;
-    transition: var(--transicion);
-    border: 1px solid var(--color-dorado);
-}
-
-.social-icons a:hover {
-    background: var(--color-dorado);
-    color: var(--color-marron-fondo);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-dorado);
-}
-
-/* ===== ANIMACIONES ===== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: var(--color-marron-fondo);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        padding: 2rem 0;
-        border-bottom: 2px solid var(--color-dorado);
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-menu li {
-        margin: 1rem 0;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .tipos-grid,
-    .top-grid,
-    .maridaje-grid,
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Mundo del Vino | Guía definitiva de los mejores vinos</title>
+    
+    <!-- META TAGS -->
+    <meta name="description" content="Descubre los mejores vinos del mundo: guías de maridaje, tipos de vino, recomendaciones de expertos y la selección Top 5 de vinos premium.">
+    <meta name="keywords" content="vinos, vino tinto, vino blanco, champagne, maridaje, enología, bodegas">
+    <meta name="author" content="El Mundo del Vino">
+    
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="El Mundo del Vino - Guía de los mejores vinos">
+    <meta property="og:description" content="Descubre los mejores vinos del mundo con nuestra guía experta">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
+    
+    <!-- CSS (UN SOLO ARCHIVO) -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#inicio" class="logo">
+                <i class="fas fa-wine-bottle"></i>
+                <span>El Mundo del Vino</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#tipos">Tipos de Vino</a></li>
+                <li><a href="#top">Top 5 Vinos</a></li>
+                <li><a href="#maridaje">Maridaje</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Descubre el <span class="highlight">Arte del Vino</span></h1>
+            <p>Explora nuestra guía completa de los mejores vinos del mundo. Desde tintos robustos hasta blancos refrescantes, te ayudamos a encontrar el vino perfecto para cada ocasión.</p>
+            <a href="#tipos" class="btn">Explorar vinos</a>
+        </div>
+    </section>
+
+    <!-- TIPOS DE VINO -->
+    <section id="tipos" class="tipos">
+        <div class="container">
+            <h2 class="section-title">🍇 Tipos de Vino</h2>
+            <p class="section-subtitle">Conoce las principales categorías y sus características</p>
+            
+            <div class="tipos-grid">
+                <div class="tipo-card">
+                    <div class="tipo-icon"><i class="fas fa-wine-bottle"></i></div>
+                    <h3>Vino Tinto</h3>
+                    <p>Elaborado con uvas tintas, fermentado con los hollejos. Cuerpo completo, taninos presentes.</p>
+                    <ul class="variedades">
+                        <li><strong>Variedades:</strong> Cabernet Sauvignon, Merlot, Malbec, Pinot Noir</li>
+                        <li><strong>Temperatura:</strong> 16-18°C</li>
+                    </ul>
+                </div>
+                <div class="tipo-card">
+                    <div class="tipo-icon"><i class="fas fa-wine-glass-alt"></i></div>
+                    <h3>Vino Blanco</h3>
+                    <p>De uvas blancas o tintas sin hollejos. Fresco, ligero y aromático.</p>
+                    <ul class="variedades">
+                        <li><strong>Variedades:</strong> Chardonnay, Sauvignon Blanc, Riesling, Albariño</li>
+                        <li><strong>Temperatura:</strong> 8-12°C</li>
+                    </ul>
+                </div>
+                <div class="tipo-card">
+                    <div class="tipo-icon"><i class="fas fa-wine-glass-alt"></i></div>
+                    <h3>Vino Rosado</h3>
+                    <p>Fermentación corta con hollejos. Equilibrio entre tinto y blanco.</p>
+                    <ul class="variedades">
+                        <li><strong>Variedades:</strong> Garnacha, Syrah, Tempranillo</li>
+                        <li><strong>Temperatura:</strong> 10-12°C</li>
+                    </ul>
+                </div>
+                <div class="tipo-card">
+                    <div class="tipo-icon"><i class="fas fa-champagne-glasses"></i></div>
+                    <h3>Vino Espumoso</h3>
+                    <p>Con burbujas naturales por doble fermentación. Celebraciones y aperitivos.</p>
+                    <ul class="variedades">
+                        <li><strong>Variedades:</strong> Champagne, Cava, Prosecco</li>
+                        <li><strong>Temperatura:</strong> 6-8°C</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOP 5 VINOS -->
+    <section id="top" class="top-vinos">
+        <div class="container">
+            <h2 class="section-title">🏆 Top 5 Mejores Vinos</h2>
+            <p class="section-subtitle">Selección de expertos: los vinos mejor valorados del mundo</p>
+            <div class="top-grid" id="top-vinos-container">
+                <!-- Se carga con JS -->
+                <div class="vino-card" style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: var(--color-dorado);"></i>
+                    <p style="margin-top: 1rem;">Cargando los mejores vinos...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARIDAJE -->
+    <section id="maridaje" class="maridaje">
+        <div class="container">
+            <h2 class="section-title">🍽️ Guía de Maridaje</h2>
+            <p class="section-subtitle">El arte de combinar vino y comida</p>
+            <div class="maridaje-grid">
+                <div class="maridaje-item">
+                    <div class="maridaje-img"><i class="fas fa-drumstick-bite"></i></div>
+                    <h3>Carnes Rojas</h3>
+                    <p><strong>Recomendación:</strong> Vino Tinto con cuerpo</p>
+                    <p>Cabernet Sauvignon, Malbec, Syrah</p>
+                </div>
+                <div class="maridaje-item">
+                    <div class="maridaje-img"><i class="fas fa-fish"></i></div>
+                    <h3>Pescados y Mariscos</h3>
+                    <p><strong>Recomendación:</strong> Vino Blanco seco</p>
+                    <p>Albariño, Sauvignon Blanc, Verdejo</p>
+                </div>
+                <div class="maridaje-item">
+                    <div class="maridaje-img"><i class="fas fa-cheese"></i></div>
+                    <h3>Quesos</h3>
+                    <p><strong>Recomendación:</strong> Vino Tinto o Blanco con cuerpo</p>
+                    <p>Quesos suaves → Blancos | Quesos fuertes → Tintos</p>
+                </div>
+                <div class="maridaje-item">
+                    <div class="maridaje-img"><i class="fas fa-utensils"></i></div>
+                    <h3>Pastas y Arroces</h3>
+                    <p><strong>Recomendación:</strong> Vino Tinto joven o Blanco</p>
+                    <p>Salsas ligeras → Blanco | Salsas densas → Tinto</p>
+                </div>
+                <div class="maridaje-item">
+                    <div class="maridaje-img"><i class="fas fa-birthday-cake"></i></div>
+                    <h3>Postres</h3>
+                    <p><strong>Recomendación:</strong> Vino Dulce o Espumoso</p>
+                    <p>Moscatel, Sauternes, Champagne</p>
+                </div>
+                <div class="maridaje-item">
+                    <div class="maridaje-img"><i class="fas fa-egg"></i></div>
+                    <h3>Aperitivos</h3>
+                    <p><strong>Recomendación:</strong> Espumoso o Blanco joven</p>
+                    <p>Cava, Champagne, Albariño</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section id="contacto" class="newsletter">
+        <div class="container">
+            <h2>🍷 Únete a nuestra comunidad de enófilos</h2>
+            <p>Recibe las mejores recomendaciones, guías exclusivas y ofertas especiales</p>
+            <form id="newsletter-form" class="form-newsletter">
+                <div class="form-group">
+                    <input type="text" id="nombre" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Tu correo electrónico" required>
+                </div>
+                <button type="submit" class="btn btn-submit">Suscribirme</button>
+            </form>
+            <div id="form-mensaje" class="form-mensaje"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>El Mundo del Vino</h3>
+                    <p>Tu guía definitiva para descubrir los mejores vinos del mundo.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#tipos">Tipos de vino</a></li>
+                        <li><a href="#top">Top 5 vinos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 El Mundo del Vino. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT (UN SOLO ARCHIVO) -->
+    <script src="script.js"></script>
+</body>
+</html>
